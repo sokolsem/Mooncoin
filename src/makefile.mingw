@@ -110,10 +110,10 @@ OBJS_SSE2= obj/scrypt-sse2.o
 OBJS += $(OBJS_SSE2)
 endif
 
-all: mooncoind.exe
+all: perspectivecoind.exe
 
-test check: test_mooncoin.exe FORCE
-	test_mooncoin.exe
+test check: test_perspectivecoin.exe FORCE
+	test_perspectivecoin.exe
 
 #
 # LevelDB support
@@ -142,7 +142,7 @@ test_mooncoin.exe: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ -lboost_unit_test_framework$(BOOST_SUFFIX) $(LIBS)
 
 clean:
-	rm -f mooncoind.exe test_mooncoin.exe
+	rm -f perspectivecoind.exe test_perspectivecoin.exe
 	rm -f obj/*
 	rm -f obj-test/*
 	cd leveldb && $(MAKE) TARGET_OS=NATIVE_WINDOWS clean && cd ..
