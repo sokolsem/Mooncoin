@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2013-2014 Dogecoin Developers
-// Copyright (c) 2013-2014 Team Mooncoin
+// Copyright (c) 2021 WEA Developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_MAIN_H
@@ -54,7 +54,7 @@ static const int64 DUST_SOFT_LIMIT = 100000000;
 /** Dust Hard Limit, ignored as wallet inputs (mininput default) */
 static const int64 DUST_HARD_LIMIT = 1000000;
 /** No amount larger than this (in satoshi) is valid */
-static const int64 MAX_MONEY = 38440000000 * COIN; // Mooncoin: maximum of 100B coins (given some randomness), max transaction 10,000,000,000 for now
+static const int64 MAX_MONEY = 339393941 * COIN; // Perspectivecoin: maximum of 100B coins (given some randomness), max transaction 10,000,000,000 for now
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY = 30;
