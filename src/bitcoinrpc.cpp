@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2013-2014 Dogecoin Developers
 // Copyright (c) 2013-2014 Team Mooncoin
+// Copyright (c) 2021 WEA Dev
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -184,10 +185,10 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "Stop Mooncoin server.");
+            "Stop Perspectivecoin server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "Mooncoin server stopping";
+    return "Perspectivecoin server stopping";
 }
 
 
@@ -301,7 +302,7 @@ string HTTPPost(const string& strMsg, const map<string,string>& mapRequestHeader
 {
     ostringstream s;
     s << "POST / HTTP/1.1\r\n"
-      << "User-Agent: mooncoin-json-rpc/" << FormatFullVersion() << "\r\n"
+      << "User-Agent: perspectivecoin-json-rpc/" << FormatFullVersion() << "\r\n"
       << "Host: 127.0.0.1\r\n"
       << "Content-Type: application/json\r\n"
       << "Content-Length: " << strMsg.size() << "\r\n"
@@ -332,7 +333,7 @@ static string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
     if (nStatus == HTTP_UNAUTHORIZED)
         return strprintf("HTTP/1.0 401 Authorization Required\r\n"
             "Date: %s\r\n"
-            "Server: mooncoin-json-rpc/%s\r\n"
+            "Server: perspectivecoin-json-rpc/%s\r\n"
             "WWW-Authenticate: Basic realm=\"jsonrpc\"\r\n"
             "Content-Type: text/html\r\n"
             "Content-Length: 296\r\n"
@@ -359,7 +360,7 @@ static string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
             "Connection: %s\r\n"
             "Content-Length: %"PRIszu"\r\n"
             "Content-Type: application/json\r\n"
-            "Server: mooncoin-json-rpc/%s\r\n"
+            "Server: perspectivecoin-json-rpc/%s\r\n"
             "\r\n"
             "%s",
         nStatus,
@@ -767,7 +768,7 @@ void StartRPCThreads()
             _("%s, you must set a secure rpcpassword in the configuration file:\n"
               "%s\n"
               "It is recommended you use the following random password:\n"
-              "rpcuser=mooncoinrpc\n"
+              "rpcuser=perspectivecoinrpc\n"
               "rpcpassword=%s\n"
               "(you do not need to remember this password)\n"
               "The username and password MUST NOT be the same.\n"
