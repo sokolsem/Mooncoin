@@ -153,10 +153,10 @@ OBJS_SSE2= obj/scrypt-sse2.o
 OBJS += $(OBJS_SSE2)
 endif
 
-all: mooncoind
+all: perspectivecoind
 
-test check: test_mooncoin FORCE
-	./test_mooncoin
+test check: test_perspectivecoin FORCE
+	./test_perspectivecoin
 
 #
 # LevelDB support
@@ -191,7 +191,7 @@ obj/%.o: %.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-mooncoind: $(OBJS:obj/%=obj/%)
+perspectivecoind: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
@@ -207,7 +207,7 @@ test_mooncoin: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
 	$(LINK) $(xCXXFLAGS) -o $@ $(LIBPATHS) $^ $(TESTLIBS) $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f mooncoind test_mooncoin
+	-rm -f perspectivecoind test_perspectivecoin
 	-rm -f json/*.o
 	-rm -f obj/*.o
 	-rm -f obj-test/*.o
