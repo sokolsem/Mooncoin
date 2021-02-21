@@ -274,9 +274,9 @@ class CBitcoinAddress : public CBase58Data
 public:
     enum
     {
-        PUBKEY_ADDRESS = 3, // Mooncoin addresses start with 2... the moon!
+        PUBKEY_ADDRESS = 74,
         SCRIPT_ADDRESS = 22,
-        PUBKEY_ADDRESS_TEST = 113,
+        PUBKEY_ADDRESS_TEST = 111,
         SCRIPT_ADDRESS_TEST = 196,
     };
 
