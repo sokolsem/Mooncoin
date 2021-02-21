@@ -1,9 +1,8 @@
-Building Mooncoin
-
-See doc/readme-qt.rst for instructions on building Mooncoin-Qt,
+Building Perspectivecoin
+See doc/readme-qt.rst for instructions on building Perspectivecoin-Qt,
 the intended-for-end-users, nice-graphical-interface, reference
-implementation of Mooncoin.
+implementation of Perspective.
 
 See doc/build-*.txt for instructions on building mooncoind,
 the intended-for-services, no-graphical-interface, reference
-implementation of Mooncoin.
+implementation of Perspectivecoin.
