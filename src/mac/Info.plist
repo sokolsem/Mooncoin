@@ -9,29 +9,29 @@
 			<string>mooncoin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>mooncoin</string>
+				<string>perspectivecoin</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleShortVersionString</key>
-        <string>1.862.1</string>
+        <string>1.204.9</string>
 	<key>CFBundleVersion</key>
-        <string>1.862.1</string>
+        <string>1.204.9</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>CFBundleIconFile</key>
-	<string>Mooncoin.icns</string>
+	<string>Perspectivecoin.icns</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>© Mooncoin</string>
+	<string>© Perspective</string>
 	<key>CFBundleSignature</key>
-	<string>MOON</string>
+	<string>PERS</string>
 	<key>CFBundleExecutable</key>
-	<string>Mooncoin-Qt</string>
+	<string>Perspectivecoin-Qt</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.mooncoin.wallet-qt</string>
+	<string>com.perspectivecoin.wallet-qt</string>
 	<key>CFBundleName</key>
-	<string>Mooncoin-Qt</string>
+	<string>Perspectivecoin-Qt</string>
 </dict>
 </plist>
