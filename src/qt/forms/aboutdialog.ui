@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>About Mooncoin</string>
+   <string>About Perspectivecoin</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
@@ -94,7 +94,7 @@
         <string notr="true">Copyright &amp;copy; 2009-YYYY The Bitcoin developers
 Copyright &amp;copy; 2011-YYYY The Litecoin developers
 Copyright &amp;copy; 2013-YYYY Dogecoin Developers
-Copyright &amp;copy; 2013-YYYY Team Mooncoin</string>
+Copyright &amp;copy; 2011-YYYY WEA Developer</string>
        </property>
        <property name="textFormat">
         <enum>Qt::RichText</enum>
@@ -111,7 +111,7 @@ Copyright &amp;copy; 2013-YYYY Team Mooncoin</string>
        </property>
        <property name="text">
         <string>
-This is experimental software. Learn more at https://bitcointalk.org/index.php?topic=389403.987654321
+This is experimental software. Use at your own risk.
 
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
