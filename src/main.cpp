@@ -366,7 +366,7 @@ unsigned int LimitOrphanTxSize(unsigned int nMaxOrphans)
 
 bool CTxOut::IsDust() const
 {
-    // Mooncoin: IsDust() detection disabled, allows any valid dust to be relayed.
+    // Perspectivecoin: IsDust() detection disabled, allows any valid dust to be relayed.
     // The fees imposed on each dust txo is considered sufficient spam deterrant. 
     return false;
 }
@@ -643,7 +643,7 @@ int64 CTransaction::GetMinFee(unsigned int nBlockSize, bool fAllowFree,
 #endif
     }
 
-    // Mooncoin
+    // Perspectivecoin
     // To limit dust spam, add nBaseFee for each output less than DUST_SOFT_LIMIT
     BOOST_FOREACH(const CTxOut& txout, vout)
         if (txout.nValue < DUST_SOFT_LIMIT)
@@ -1123,7 +1123,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
 	if(nHeight <= 100000) {
                 nSubsidy = (1 + generateMTRandom(seed, 1999999)) * COIN;
         } else if(nHeight > 193076 && nHeight < 203158) {
-                nSubsidy = 2519841 * COIN; // for _roughly_ one week, the cost of the Apollo program will be paid back -- 25.4bn MOON!
+                nSubsidy = 25841 * COIN;
         } else if(nHeight <= 203518) {
                 nSubsidy = (1 + generateMTRandom(seed, 999999)) * COIN;
         } else if(nHeight <= 250000) {
@@ -1138,7 +1138,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 nSubsidy = (1 + generateMTRandom(seed, 49999)) * COIN;
         }
 
-	if (nHeight % 29531 == 0) {
+	if (nHeight % 291 == 0) {
                 // a prize for ever lunar cycle
                 nSubsidy = nSubsidy * 2;
         }
@@ -1147,8 +1147,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 8 * 60 * 60; // Mooncoin: every 8 hours
-static const int64 nTargetSpacing = 90; // Mooncoin: 1 minutes
+static const int64 nTargetTimespan = 7 * 60 * 60; // Perspectivecoin: every 7 hours
+static const int64 nTargetSpacing = 20; // Perspectivecoin: 1 minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -2429,7 +2429,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
 
 bool CBlockIndex::IsSuperMajority(int minVersion, const CBlockIndex* pstart, unsigned int nRequired, unsigned int nToCheck)
 {
-    // Mooncoin: temporarily disable v2 block lockin until we are ready for v2 transition
+    // Perspectivecoin: temporarily disable v2 block lockin until we are ready for v2 transition
     return false;
     unsigned int nFound = 0;
     for (unsigned int i = 0; i < nToCheck && nFound < nRequired && pstart != NULL; i++)
@@ -2947,12 +2947,12 @@ bool InitBlockIndex() {
         //  vMerkleTree: 5b2a3f53f605d62c53e62932dac6925e3d74afa5a4b459745c36d42d0ed26a69 
 
         // Genesis block
-        const char* pszTimestamp = "3:56AM - MEN WALK ON MOON. ASTRONAUTS LAND ON PLAIN; COLLECT ROCKS, PLANT FLAG - July 21st, 1969";
+        const char* pszTimestamp = "Look into the distance and you will see that the world around you is wonderful and beautiful.";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 88 * COIN;
+        txNew.vout[0].nValue = 24 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("047aca981aef583b72a14d79afd688c344860db3502da3cd75d3ff6d5481f47617252e38854a57d83d41a9b644e51b92f80c11bd29f4daca185ba89ae58b6da51a") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
@@ -4297,7 +4297,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// MooncoinMiner
+// PerspectivecoinMiner
 //
 
 int static FormatHashBlocks(void* pbuffer, unsigned int len)
@@ -4710,7 +4710,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return false;
 
     //// debug print
-    printf("MooncoinMiner:\n");
+    printf("PerspectivecoinMiner:\n");
     printf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
     printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
@@ -4739,11 +4739,11 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     return true;
 }
 
-void static MooncoinMiner(CWallet *pwallet)
+void static PerspectivecoinMiner(CWallet *pwallet)
 {
-    printf("MooncoinMiner started\n");
+    printf("PerspectivecoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("mooncoin-miner");
+    RenameThread("perspectivecoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -4765,7 +4765,7 @@ void static MooncoinMiner(CWallet *pwallet)
         CBlock *pblock = &pblocktemplate->block;
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        printf("Running MooncoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        printf("Running PerspectivecoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -4864,7 +4864,7 @@ void static MooncoinMiner(CWallet *pwallet)
     } }
     catch (boost::thread_interrupted)
     {
-        printf("MooncoinMiner terminated\n");
+        printf("PerspectivecoinMiner terminated\n");
         throw;
     }
 }
@@ -4889,7 +4889,7 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
 
     minerThreads = new boost::thread_group();
     for (int i = 0; i < nThreads; i++)
-        minerThreads->create_thread(boost::bind(&MooncoinMiner, pwallet));
+        minerThreads->create_thread(boost::bind(&PerspectivecoinMiner, pwallet));
 }
 
 // Amount compression:
