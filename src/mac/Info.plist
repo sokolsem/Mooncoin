@@ -20,7 +20,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>CFBundleIconFile</key>
-	<string>Perspectivecoin.icns</string>
+	<string>pers.icns</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>NSHumanReadableCopyright</key>
